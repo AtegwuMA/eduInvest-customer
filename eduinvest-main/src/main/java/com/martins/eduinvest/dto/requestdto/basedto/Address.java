@@ -5,18 +5,20 @@ import jakarta.validation.constraints.Size;
 
 public abstract class Address {
     @NotNull
-    @Size(max = 20, message = "Location details cannot exceed 20 characters.")
-    private String streetNameAndNumber;
+    @Size(max = 20, message = "House number cannot exceed 20 characters.")
+    private String houseNumber;
     @NotNull
-    @Size(max = 20, message = "Location details cannot exceed 20 characters.")
+    @Size(max = 20, message = "Street name cannot exceed 20 characters.")
+    private String streetName;
+    private String landmark;
+    @NotNull
+    @Size(max = 20, message = "City cannot exceed 20 characters.")
     private String city; // Location details
     @NotNull
-    @Size(max = 20, message = "Location details cannot exceed 20 characters.")
+    @Size(max = 20, message = "State cannot exceed 20 characters.")
     private String state; // Location details
     @NotNull
     @Size(max = 20, message = "Location details cannot exceed 20 characters.")
     private String countryOfOrigin;
-    @NotNull
-    @Size(min = 5, max = 400, message = "The address should be between 5 and 400 characters.")
-    private String addressDetails;
+
 }

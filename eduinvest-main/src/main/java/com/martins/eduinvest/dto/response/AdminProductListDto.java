@@ -5,18 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @RequiredArgsConstructor
 public class AdminProductListDto {
 
-    private Date createdDate;
+    private LocalDate purchaseDate;
     private Integer totalProducts;
     private Integer activeProducts;
     private Integer offlineProducts;
-    private String productName;
-    private String productAmount;
+    private String productType;
+    private String productCost;
     private String productPurchases;
     private boolean status;
 }

@@ -25,13 +25,14 @@ public class Agent extends BioDetails {
     private String referralCode;
     private Double referralBonus;
     private Double conversionRate;
+    private boolean emailVerified;
 
     @OneToMany(mappedBy = "agent")
     private List<Transaction> transactions;
 
     @OneToMany(mappedBy = "agent")
     private List<Customer> referrals;
-    private boolean emailVerified;
+
 
 
 }

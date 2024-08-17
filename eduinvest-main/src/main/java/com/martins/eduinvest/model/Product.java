@@ -1,24 +1,33 @@
 package com.martins.eduinvest.model;
 
+import com.martins.eduinvest.enums.ProductType;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
     private Long id;
-    private String name;
-    private String description;
-    private LocalDate createdDate;
-    private LocalDate expirationDate;
-    private Double quantity;
-    private Double thresholdQuantity;
-    private Double amount;
+
+    private Long productCost;
+    private ProductType productType;
+    private Integer productDuration;
+    private LocalDate purchaseDate;
+    private Integer totalProducts;
+    private Integer activeProducts;
+    private Integer offlineProducts;
     private boolean status;
-//    private boolean activeProduct;
+
+    @ManyToOne(targetEntity = Customer.class, cascade = CascadeType.DETACH)
+    private Customer customer;
+
+    @ManyToOne(targetEntity = Child.class, cascade = CascadeType.DETACH)
+    private Child child;
 
     @ManyToOne
     @JoinColumn(name = "admin_id")
